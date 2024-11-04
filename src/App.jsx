@@ -10,8 +10,8 @@ export const tabs = [
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
-function currentTab(id) {
-  const current = tabs.filter(el => el.id === id);
+function getCurrentTab(id) {
+  const current = tabs.filter(tab => tab.id === id);
 
   if (current.length === 0) {
     return tabs[0];
@@ -22,7 +22,7 @@ function currentTab(id) {
 
 export const App = () => {
   const [activeTabId, setActiveTabId] = useState(tabs[0].id);
-  const activeTab = currentTab(activeTabId);
+  const activeTab = getCurrentTab(activeTabId);
 
   return (
     <div className="section">
