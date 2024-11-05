@@ -11,13 +11,9 @@ export const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 function getCurrentTab(id) {
-  const current = tabs.filter(tab => tab.id === id);
+  const currentTab = tabs.find(tab => tab.id === id) || tabs[0];
 
-  if (current.length === 0) {
-    return tabs[0];
-  }
-
-  return current[0];
+  return currentTab;
 }
 
 export const App = () => {
@@ -33,7 +29,7 @@ export const App = () => {
           <Tabs
             tabs={tabs}
             activeTabId={activeTab.id}
-            onTabSelected={idCurrent => setActiveTabId(idCurrent)}
+            onTabSelected={setActiveTabId}
           />
         </div>
 
